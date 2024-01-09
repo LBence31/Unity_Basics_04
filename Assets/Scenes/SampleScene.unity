@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028383, g: 0.22571409, b: 0.30692282, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028343, g: 0.22571331, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointPrefab: {fileID: 9065114774814217698, guid: 69817e22c49f094448da462ddd239a51, type: 3}
   resolution: 100
-  function: 4
+  function: 1
 --- !u!4 &1527527667
 Transform:
   m_ObjectHideFlags: 0

@@ -67,18 +67,6 @@ public static class FunctionLibrary
 	public static Function GetFunction(FunctionName name)
 	{
 		return functions[(int)name];
-		/*if (index == 0)
-		{
-			return Wave;
-		}
-		else if (index == 1)
-		{
-			return MultiWave;
-		}
-		else
-		{
-			return Ripple;
-		}*/
 	}
 
 }
