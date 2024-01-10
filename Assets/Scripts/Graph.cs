@@ -27,6 +27,7 @@ public class Graph : MonoBehaviour
 			point.SetParent(transform, false);
 		}
 	}
+
 	void Update()
 	{
 		FunctionLibrary.Function f = FunctionLibrary.GetFunction(function);  // Basically pointer function
@@ -47,4 +48,5 @@ public class Graph : MonoBehaviour
 			points[i].localPosition = f(u, v, time);
 		}
 	}
+
 }

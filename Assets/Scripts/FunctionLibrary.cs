@@ -26,7 +26,7 @@ public static class FunctionLibrary
 
 	public static Vector3 Ripple(float u, float v, float t)
 	{
-		float d = Sqrt(u * u + v * v); // Abs(x);
+		float d = Sqrt(u * u + v * v);
 		Vector3 p;
 		p.x = u;
 		p.y = Sin(4f * PI * d);
