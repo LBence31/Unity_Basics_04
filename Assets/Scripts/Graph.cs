@@ -11,7 +11,11 @@ public class Graph : MonoBehaviour
 	[SerializeField]
 	FunctionLibrary.FunctionName function;
 
+	[SerializeField, Min(0f)]
+	float functionDuration = 1f;
+
 	Transform[] points;
+	float duration;
 
 	void Awake()
 	{
@@ -29,6 +33,17 @@ public class Graph : MonoBehaviour
 	}
 
 	void Update()
+	{
+		duration += Time.deltaTime;
+		if (duration >= functionDuration)
+		{
+			duration -= functionDuration;
+			function = FunctionLibrary.GetNextFunctionName(function);
+		}
+		FixedUpdate();
+	}
+
+	void FixedUpdate()
 	{
 		FunctionLibrary.Function f = FunctionLibrary.GetFunction(function);  // Basically pointer function
 		float step = 2f / resolution;
