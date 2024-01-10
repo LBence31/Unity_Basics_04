@@ -74,4 +74,10 @@ public static class FunctionLibrary
 		return (int)name < functions.Length - 1 ? ++name : 0;
 	}
 
+	public static FunctionName GetRandomFunctionNameOtherThan(FunctionName name)
+	{
+		var choice = (FunctionName)Random.Range(1, functions.Length);
+		return choice == name ? 0 : choice;
+	}
+
 }

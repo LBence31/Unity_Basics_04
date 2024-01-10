@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Graph : MonoBehaviour
 {
+	public enum TransitionMode { Cycle, Random }
+
 	[SerializeField]
 	Transform pointPrefab;
 
@@ -13,6 +15,9 @@ public class Graph : MonoBehaviour
 
 	[SerializeField, Min(0f)]
 	float functionDuration = 1f;
+
+	[SerializeField]
+	TransitionMode transitionMode;
 
 	Transform[] points;
 	float duration;
@@ -38,12 +43,19 @@ public class Graph : MonoBehaviour
 		if (duration >= functionDuration)
 		{
 			duration -= functionDuration;
-			function = FunctionLibrary.GetNextFunctionName(function);
+			PickNextFunction();
 		}
-		FixedUpdate();
+		UpdateFunction();
 	}
 
-	void FixedUpdate()
+	void PickNextFunction()
+	{
+		function = transitionMode == TransitionMode.Cycle ?
+			FunctionLibrary.GetNextFunctionName(function) :
+			FunctionLibrary.GetRandomFunctionNameOtherThan(function);
+	}
+
+	void UpdateFunction()
 	{
 		FunctionLibrary.Function f = FunctionLibrary.GetFunction(function);  // Basically pointer function
 		float step = 2f / resolution;
